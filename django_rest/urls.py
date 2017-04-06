@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from hello_rest.views import BookList, BookDetail, GenericBookList
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^book/$', BookList.as_view()),
+    url(r'^book/id=(\d+)$', BookDetail.as_view()),
+    url(r'^genericbook/$', GenericBookList.as_view()),
 ]
